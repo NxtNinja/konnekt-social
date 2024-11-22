@@ -25,7 +25,7 @@ export function Dashboard({ children }: { children: ReactNode }) {
             <SidebarTrigger className="-ml-1" />
           </div>
         </header>
-        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">{children}</div>
+        <div className="flex flex-1 flex-col gap-4">{children}</div>
       </SidebarInset>
     </SidebarProvider>
   );

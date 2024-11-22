@@ -40,7 +40,6 @@ const data = {
       title: "Feed",
       url: "/",
       icon: Home,
-      isActive: true,
     },
     {
       title: "Explore",

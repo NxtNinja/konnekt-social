@@ -18,6 +18,7 @@ import {
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export function NavMain({
   items,
@@ -33,25 +34,24 @@ export function NavMain({
     }[];
   }[];
 }) {
+  const { pathname } = useRouter();
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Platform</SidebarGroupLabel>
-      <SidebarMenu>
+      <SidebarMenu className="space-y-2">
         {items.map((item) => (
-          <Collapsible
-            key={item.title}
-            asChild
-            defaultOpen={item.isActive}
-            className="group/collapsible"
-          >
-            <SidebarMenuItem>
-              <SidebarMenuButton tooltip={item.title}>
-                {item.icon && <item.icon />}
-                <Link href={item.url}>
+          <Collapsible key={item.title} asChild>
+            <Link href={item.url}>
+              <SidebarMenuItem className="hover:bg-none">
+                <SidebarMenuButton
+                  className="hover:bg-none"
+                  tooltip={item.title}
+                >
+                  {item.icon && <item.icon />}
                   <span>{item.title}</span>
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </Link>
           </Collapsible>
         ))}
       </SidebarMenu>
